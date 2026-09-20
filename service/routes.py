@@ -61,6 +61,7 @@ def create_accounts():
 # LIST ALL ACCOUNTS
 ######################################################################
 
+
 @app.route("/accounts", methods=["GET"])
 def list_accounts():
     """
@@ -83,16 +84,15 @@ def list_accounts():
 @app.route("/accounts/<id>", methods=["GET"])
 def read_account(id):
     account = Account.find(id)
-    if account is None : 
+    if account is None:
         return "Ressource Not Found", status.HTTP_404_NOT_FOUND
     account = account.serialize()
-    return account , status.HTTP_200_OK
-
-
+    return account, status.HTTP_200_OK
 
 ######################################################################
 # UPDATE AN EXISTING ACCOUNT
 ######################################################################
+
 
 @app.route("/accounts/<int:account_id>", methods=["PUT"])
 def update_accounts(account_id):
