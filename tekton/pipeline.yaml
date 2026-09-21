@@ -48,7 +48,7 @@ spec:
       - name: image
         value: "python:3.9-slim"
       - name: args
-        value: ["--count","--max-complexity=10","--max-line-length=127","--statistics","--cover-package=service"]
+        value: ["--count","--max-complexity=10","--max-line-length=127","--statistics"]
       runAfter:
         - clone
 
@@ -64,7 +64,7 @@ spec:
       - name: args
         value: "-v --with-spec --spec-color"
       runAfter:
-        - clone
+        - lint
 
     - name: build
       workspaces:
